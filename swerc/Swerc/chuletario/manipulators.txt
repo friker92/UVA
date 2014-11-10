@@ -1,0 +1,49 @@
+_*MANIPULADORES - IOMANIP*_
+
+// FALGS DE FOMATO
+- boolalpha/noboolalpha: muesta su valor verdadero/falso     cout << boolalpha << b; :== true
+- showbase/noshowbase: muesta el prefijo de la base (0x _hex_, 0 _oct_, nada _dec_).   cout << hex << showbase << 14 << endl; :== 0x14
+- showpoint/noshowponint: muestra el punto de _double/float_. Se puede combinar con setprecicion.     cout.precision (5); cout << showpoint << 30.0 << 10000.0 << 3.1416; :==  30.000 10000. 3.1416
+- showpos/noshowpos: muesta el signo + para numeros positivos    cout << showpos << 1 << 0 << -1; :== +1  +0  -1
+- skipws: elimina todos los espacios en blanco de la entrada
+  	  istrinstream iss ("  123");
+	  iss >> skipws >> a >> b >> c;
+	  cout << a << b << c; :== 123
+- uppercase/nouppercase: convierte el texto a mayusculas.
+  	  cout << showbase << hex;
+	  cout << uppercase << 77; :== 0X4D
+	  cout << nouppercase << 77; :== 0x4d
+
+
+- fixed: escribe _numeros flotantes_ en notacion de punto fijo
+- scientific: escribe _numeros flotantes_ en notación científica
+  	  cout.setprecission(5);
+  	  cout <<            << 3.1415926532 << 2006.0 << 1.0e-10;
+	       3.1416         2006          1e-010
+  	  cout <<    fixed   << 3.1415926532 << 2006.0 << 1.0e-10;
+	       3.14159        2006.00000    0.00000	  	  
+	  cout << scientific << 3.1415926532 << 2006.0 << 1.0e-10; 
+	       3.14159e+000   2.00600e+003  1.00000e-10
+
+
+- internal: espacia el texto separando el signo del valor
+- left: muestra el texto alineado a la izquierda con el ancho indicdo
+- rigth: muestra el texto a la derecha con el ancho indicado
+
+  	 cout.width(6); cout << internal << -77 << endl; :== -   77
+  	 cout.width(6); cout << left << -77 << endl;     :== -77 
+  	 cout.width(6); cout << right << -77 << endl;    :==    -77
+
+// MANIPULADORES PARAMETRIZADOS
+- setfill (char c): rellena el ancho indicado con el caracter pasado por parametro
+  	  cout << setfill ('x') << setw (10;
+	  cout << 77 << endl; :== xxxxxxxx77
+- setprecision: imprime el número según la precisión indicada. Si es fixed rellena con 0
+  	  cout << setprecision (5) << 3.14159 << endl; :== 3.1416
+  	  cout << setprecision (9) << 3.14159 << endl; :== 3.14159
+	  cout << fixed;
+  	  cout << setprecision (5) << 3.14159 << endl; :== 3.14159
+  	  cout << setprecision (9) << 3.14159 << endl; :== 3.141590000
+- setw(int n): setea el ancho de linea indicado
+  	   cout << setw(10);
+	   cout << 77 << endl;
